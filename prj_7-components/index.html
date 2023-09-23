@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue JS</title>
+</head>
+<body>
+    <div id="app">
+        <h1>Vue.JS</h1>
+        <my-component></my-component>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<script>
+    Vue.component('my-component', {
+        template:"<p>My component {{ name }} <button v-on:click='change'>Changement</button></p>",
+        data() {
+            return {
+                name:('John Doe')
+            }
+        },
+        methods: {
+            change: function(){
+                this.name = "Steven Doe"
+            }
+        },
+    })
+
+    const home = new Vue({
+        el:"#app"
+    })
+</script>
+</body>
+</html>

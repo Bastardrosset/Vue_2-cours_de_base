@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue JS</title>
+</head>
+<style>
+    .box{
+        width: 250px;
+        height: 250px;
+        border: 1px solid black;
+    }
+    .red{
+        background: red;
+    }
+    .bordure{
+        border: 12px solid black;
+    }
+</style>
+<body>
+    <div id="app">
+        <h1>Vue.Js</h1>
+        <button v-on:click="toggleColor = !toggleColor">Toggle la couleur</button>
+        <div v-bind:class="objCSS"></div><!-- Il est possible d'inserer les class dans un tableau [], l'avantage est de pouvoir réaliser des opération ternaires "[objCSS, togglerColor ? 'bordure' : '']"-->
+        <div>
+            <h4>Inline style</h4>
+            <p :style="myStyle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae voluptatem blanditiis animi officiis laudantium!</p>
+        </div>
+    </div>
+    
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<script>
+    const {createApp} = Vue
+    createApp({
+        data(){
+            return{
+                toggleColor: false,
+                box: true,
+                color: 'lightblue',
+                width: 200
+            }
+        },
+
+        methods: {
+            
+        },
+        computed: {
+            objCSS: function(){
+                return{
+                    red: this.toggleColor,
+                    box: true
+                }
+            },
+            myStyle: function(){
+                return{
+                    backgroundColor: this.color,
+                    width: this.width + "px"
+                }
+            }
+        }
+    }).mount('#app');
+</script>
+</body>
+</html>

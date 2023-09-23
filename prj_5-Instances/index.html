@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+            <h1>Vue.Js</h1>
+        <div id="mon-App_1">
+            <h3>{{ txt1 }}</h3>
+        </div>
+
+        <div id="monApp2">
+            <h3>{{ txt2 }}</h3>
+        </div>
+        <button @click="shareChange">Changer</button> 
+    </div>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+
+<script>
+    const app = Vue.createApp({
+        el: '#app',
+        data() {
+            return {
+                txt1: "Hello APP 1",
+                txt2: "Hello App 2"
+            }
+        },
+        methods: {
+            shareChange() {
+                this.txt1 = "Je t'ai changé !"  
+            }
+        }
+    })
+
+app.mount('#app')
+        
+</script>
+</body>
+</html>

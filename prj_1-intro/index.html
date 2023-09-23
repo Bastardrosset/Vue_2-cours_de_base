@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue JS</title>
+</head>
+<style>
+    .compteur{
+        display: flex;
+        flex-direction: column;
+    }
+</style>
+<body>
+    <div id="app">
+        <h1>Vue JS</h1>
+        <div class="compteur">
+            <button @click="compteurA++">Augmenter</buttonv-on>
+            <button @click="compteurB--">Diminuer</buttonv-on>
+                <h4>Compteur: {{ compteurA }}</h4>
+                <p>{{ checkValeur() }} |||| {{ memo }}</p>
+
+                <button @click="compteurB++">Augmente</button>
+                <p>{{ compteurB }}</p>
+        </div>
+    </div>
+    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+        const {createApp} = Vue
+        createApp({
+            data() {
+                return {
+                    compteurA: 0,
+                    compteurB: 0,
+                }
+            },
+           
+            methods: {
+                checkValeur: function(){
+                    console.log("La fonction c'est lancé");
+
+                    return this.compteurA > 10 ? "Superieur à 10" : "Inferieur à 10";
+                }
+                
+            },
+            watch: {
+                compteurA: function(){
+                    setTimeout(() => {
+                        this.compteurA = 0;
+                    }, 2000)
+                }
+            },
+            computed: {
+                memo: function(){
+                    console.log("Memo c'est lancé");
+
+                    return this.compteurA > 10 ? "Superieur à 10" : "Inferieur à 10";
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue JS</title>
+</head>
+<style>
+
+</style>
+<body>
+    <div id="app">
+        <h1>Vue.Js</h1>
+        <button v-on:click="toggleBox = !toggleBox">Toggle</button>
+        <ul>
+            <li v-for="nb in array">{{ nb }}</li>
+        </ul>
+        <ul>
+            <li v-for="(fruit, index) in tableauFruit">{{ index }} {{ fruit }}</li>
+        </ul>
+        <ul>
+            <li v-for="(value, props) in objUser">{{ props }} : {{ value }}</li>
+        </ul>
+        <ul>
+            <li v-for="obj in objUsers">
+                <div v-for="(values, props) in obj">{{ props }} : {{ values }}</div>
+            </li>
+        </ul>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<script>
+    const {createApp} = Vue
+    createApp({
+        data(){
+            return{
+                array: [1,2,3,4,5],
+                tableauFruit: ["Banane", "Poire", "Pomme"],
+                objUser: {
+                    firstname: 'John',
+                    lastname: 'doe',
+                    civility: 'Homme',
+                    age: 30,
+                },
+                objUsers: [
+                    {firstname: 'John', lastname: 'Doe', civility: 'Homme', age: 30},
+                    {firstname: 'Manon', lastname: 'DeFleurette', civility: 'Femme', age: 25},
+                    {firstname: 'Jack', lastname: 'Docker', civility: 'Homme', age: 35},
+                ],
+                toggleBox: true,
+            }
+        },
+    }).mount('#app');
+</script>
+</body>
+</html>

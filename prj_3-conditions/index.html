@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue JS</title>
+</head>
+<style>
+    .box{
+        width: 250px;
+        height: 250px;
+        border: 1px solid black;
+    }
+    .red{
+        background: red;
+    }
+</style>
+<body>
+    <body>
+    <div id="app">
+        <h1>Vue.Js - Les conditions</h1>
+        <button v-on:click="toggleBox = !toggleBox">Toggle la couleur</button>
+        <div v-if="toggleBox" class="box red"></div>
+        <p v-else="toggleBox">Sinon</p>
+        <div>
+            <p v-if="num === 1">La valeur est 1</p>
+            <p v-else-if="num === 2">La valeur est 2</p>
+            <p v-else-if="num === 3">La valeur est 3</p>
+            <p v-else>Ce n'est ni 1 ni 2 ni 3</p>
+        </div>
+        <div>
+            <button v-on:click="toggleTemplate = !toggleTemplate">Toggle de template</button>
+            <template v-if="toggleTemplate">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi, possimus.</p>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi, possimus.</p>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi, possimus.</p>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi, possimus.</p>
+            </template>
+        </div>
+    </div>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<script>
+    const {createApp} = Vue
+    createApp({
+        data(){
+            return{
+                toggleBox: true,
+                num: 2,
+                toggleTemplate: true
+            }
+        },
+
+        methods: {
+            
+        },
+        
+    }).mount('#app');
+</script>
+    
+</body>
+</html>

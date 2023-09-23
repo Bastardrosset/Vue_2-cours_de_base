@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue JS</title>
+</head>
+<body>
+    <div id="app">
+            <h1>Vue.Js</h1>
+        <div id="mon-App_1">
+            <h3>{{ txt1 }}</h3>
+        </div>
+
+        <div id="monApp2">
+            <h3>{{ txt2 }}</h3>
+            <button v-on:click="shareChange">Changer</button> 
+        </div>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<script>
+    const instance1 = new Vue({
+      el: '#mon-App_1',
+        data: {
+          txt1: "Hello APP 1"
+        }      
+    })
+
+    const instance2 = new Vue({
+      el: '#monApp2',
+        data: {
+          txt2: "Hello APP 2"
+        },
+        methods: {
+          shareChange: function() {
+            instance1.txt1 = "Je t'ai changé !"  
+          }
+        }    
+    })
+
+</script>
+</body>
+</html>
